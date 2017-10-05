@@ -1,0 +1,33 @@
+@import "bootstrap/scss/bootstrap";
+@import "normalize.css/normalize";
+@import "bourbon/app/assets/stylesheets/bourbon";
+@import "mixins";
+
+html, body {
+  height: 100%;
+}
+
+body {
+  @include backgroundSize(cover);
+  background-image: url('/../assets/background.jpg');
+}
+
+#main {
+  height: 100%;
+
+  .container {
+    height: 100%;
+
+    h1, h5 {
+      margin: 0;
+    }
+
+    h1 {
+      margin-top: 1em;
+    }
+    h5 {
+      margin-bottom: 2em;
+    }
+
+  }
+}
