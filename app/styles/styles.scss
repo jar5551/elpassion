@@ -1,7 +1,7 @@
-@import "bootstrap/scss/bootstrap";
 @import "normalize.css/normalize";
 @import "bourbon/app/assets/stylesheets/bourbon";
 @import "mixins";
+@import "variables";
 
 html, body {
   height: 100%;
@@ -10,24 +10,47 @@ html, body {
 body {
   @include backgroundSize(cover);
   background-image: url('/../assets/background.jpg');
+  margin: 0;
+  padding: 0;
 }
 
 #main {
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .container {
+.rounded-box {
+  @include border-top-radius(10px);
+  @include border-bottom-radius(10px);
+}
+
+#mainContainer {
+  width: 650px;
+  height: 500px;
+  overflow: hidden;
+
+  nav, main {
     height: 100%;
+  }
 
-    h1, h5 {
-      margin: 0;
-    }
+  nav {
+    width: 150px;
+    height: 100%;
+    background-color: $navBg;
+    float: left;
+  }
 
-    h1 {
-      margin-top: 1em;
-    }
-    h5 {
-      margin-bottom: 2em;
-    }
+  main {
+    background-color: $boxBgColor;
 
+  }
+}
+
+.btn {
+  .commonNav {
+    @include border-top-radius(50%);
+    @include border-bottom-radius(50%);
   }
 }
