@@ -1,7 +1,7 @@
-# Small Project Starter
+# Proof for El Passion
 
 
-Powerful combination of Gulp, SASS (with Bourbon), ES6, jQuery and Bootstrap. This starter pack is made for quick development of small web projects.
+Project includes combination of Gulp, SASS (with Bourbon), ES6, jQuery and Bootstrap.
 
 ## Quick start
 
