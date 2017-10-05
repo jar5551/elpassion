@@ -31,7 +31,8 @@ const sources = {
   styles: `${dirs.app}/**/*.scss`,
   fonts: `${dirs.app}/assets/fonts/**/*`,
   scripts: `${dirs.app}/.tmp/scripts/**/*.js`,
-  html: `${dirs.app}/*.html`
+  html: `${dirs.app}/*.html`,
+  assets: `${dirs.app}/assets/*`
 };
 
 function compile(watch) {
@@ -93,7 +94,7 @@ gulp.task('watch', () => {
 
 /*gulp.task('build', function() { return compile(); });*/
 
-gulp.task('build', ['clean', 'sass', 'useref', 'fonts', 'images'], function (){
+gulp.task('build', ['clean', 'sass', 'useref', 'assets', 'images'], function (){
   console.log('Building files');
 });
 
@@ -120,6 +121,11 @@ gulp.task('images', function(){
 gulp.task('fonts', function() {
   return gulp.src(sources.fonts)
     .pipe(gulp.dest(path.join(dirs.dist, 'assets', 'fonts')))
+});
+
+gulp.task('assets', function () {
+  return gulp.src(sources.assets)
+    .pipe(gulp.dest(path.join(dirs.dist, 'assets')));
 });
 
 gulp.task('serve', ['sass', 'browser-sync', 'watch']);
