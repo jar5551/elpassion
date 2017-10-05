@@ -14,6 +14,11 @@ body {
   padding: 0;
 }
 
+* {
+  outline: none;
+}
+
+
 #main {
   height: 100%;
   display: flex;
@@ -27,6 +32,7 @@ body {
 }
 
 #mainContainer {
+  @include boxShadow(0, 0, rem(15), rgba(0, 0, 0, .5));
   width: rem(650);
   height: rem(500);
   overflow: hidden;
@@ -36,7 +42,7 @@ body {
   }
 
   nav {
-    width: rem(150);
+    width: rem($navWidth);
     height: 100%;
     background-color: $navBg;
     float: left;
@@ -47,20 +53,51 @@ body {
       justify-content: left;
       align-items: center;
       padding-left: rem(5);
+      padding-top: rem(1);
 
       .btn {
         margin-left: rem(10);
+      }
+    }
+
+    #mainNav {
+      ul {
+        li {
+          .btn {
+            display: block;
+
+            &.navBtn {
+              @include border-style(none);
+              color: $navColorPrimary;
+              height: rem(50);
+              width: 100%;
+              background-color: transparent;
+              text-align: left;
+              padding: 0 0 0 rem(15);
+              margin: 0;
+
+              &:hover, &.active {
+                background-color: $navHover;
+              }
+            }
+          }
+        }
       }
     }
   }
 
   main {
     background-color: $boxBgColor;
+    margin-left: rem($navWidth);
 
   }
 }
 
 .btn {
+  &:focus {
+    @include boxShadow(none);
+  }
+
   &.commonNav {
     @include border-style(none);
     @include border-top-radius(50%);
@@ -73,6 +110,29 @@ body {
 
     &.close {
       background-color: $commonClose;
+    }
+
+    &.minimalize {
+      background-color: $commonMinimalize;
+    }
+
+    &.fullscreen {
+      background-color: $commonFullScreen;
+    }
+  }
+}
+
+nav {
+  ul {
+    padding: 0;
+    margin: 0;
+    display: block;
+
+    li {
+      padding: 0;
+      margin: 0;
+      display: block;
+
     }
   }
 }

@@ -3,7 +3,7 @@
   background-size: $size;
 }
 
-@mixin boxShadow($hoff, $voff, $blur, $color) {
+@mixin boxShadow($hoff: 0, $voff: 0, $blur: 0, $color: #000000) {
   @if($hoff == 'none') {
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
