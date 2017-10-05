@@ -10,8 +10,8 @@ html, body {
 }
 
 body {
+  background: url('/../assets/background.jpg') no-repeat center center fixed;
   @include backgroundSize(cover);
-  background-image: url('/../assets/background.jpg');
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
@@ -45,10 +45,33 @@ body {
   }
 
   nav {
+    @include position();
     width: rem($navWidth);
     height: 100%;
-    background-color: $navBg;
     float: left;
+    overflow: hidden;
+
+    > div {
+      @include position();
+      z-index: 1;
+    }
+
+    &:after, &:before {
+      @include position(absolute, -10% -10% -10% -10%);
+      content: '';
+    }
+
+    &:after {
+      background-color: $navBg;
+      opacity: .9;
+    }
+
+    &:before {
+      background: url('/../assets/background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      overflow: hidden;
+      filter: blur(5px);
+    }
 
     #commonNav {
       height: rem(40);
