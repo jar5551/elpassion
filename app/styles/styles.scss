@@ -2,6 +2,7 @@
 @import "bourbon/app/assets/stylesheets/bourbon";
 @import "mixins";
 @import "variables";
+@import url('https://fonts.googleapis.com/css?family=Roboto&subset=latin-ext');
 
 html, body {
   height: 100%;
@@ -12,12 +13,12 @@ body {
   background-image: url('/../assets/background.jpg');
   margin: 0;
   padding: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
 * {
   outline: none;
 }
-
 
 #main {
   height: 100%;
@@ -67,7 +68,10 @@ body {
             display: block;
 
             &.navBtn {
+              @include position();
               @include border-style(none);
+              display: flex;
+              align-items: center;
               color: $navColorPrimary;
               height: rem(50);
               width: 100%;
@@ -75,9 +79,23 @@ body {
               text-align: left;
               padding: 0 0 0 rem(15);
               margin: 0;
+              font-size: rem(14);
 
               &:hover, &.active {
                 background-color: $navHover;
+              }
+
+              img {
+                margin-right: rem(9);
+              }
+
+              span {
+                &.number {
+                  @include position(absolute, 0 rem(15) 0 null);
+                  color: $textSecondary;
+                  height: 1em;
+                  margin: auto;
+                }
               }
             }
           }
@@ -87,9 +105,67 @@ body {
   }
 
   main {
-    background-color: $boxBgColor;
-    margin-left: rem($navWidth);
+    &#issues {
+      background-color: $boxBgColor;
+      margin-left: rem($navWidth);
+      padding: 0 rem(20) 0 rem(15);
+      overflow: auto;
 
+      section {
+        header {
+          font-size: rem(12);
+          color: $textSecondary;
+          height: rem(20);
+          margin: rem(5) 0;
+          display: flex;
+          align-items: center;
+        }
+
+        article {
+          @include position();
+          @include border-top-radius(rem(5));
+          @include border-bottom-radius(rem(5));
+          @include border-style(solid);
+          @include border-color($borderPrimary);
+          @include border-width(rem(1));
+          height: rem(38);
+          display: flex;
+          align-items: center;
+          background-color: $issueBg;
+          color: $textPrimary;
+          margin: rem(5) 0;
+          padding: 0 rem(10);
+
+          .btn {
+            &.btn-star {
+              @include border-style(none);
+              background-color: transparent;
+              margin-left: auto;
+              margin-right: 0;
+
+              svg {
+                fill: none;
+
+                .cls-1 {
+                  stroke: $borderPrimary;
+                  fill-rule: evenodd;
+                }
+
+              }
+
+              &:hover, &.active {
+                svg {
+                  .cls-1 {
+                    fill: $starActive;
+                    stroke: none;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 
