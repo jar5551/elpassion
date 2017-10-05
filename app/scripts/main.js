@@ -1,5 +1,5 @@
 /**
- * Created by jarek on 01/04/2017.
+ * Created by jarek on 05/10/2017.
  */
 
 import jQuery from 'jquery';
