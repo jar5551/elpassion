@@ -1,5 +1,6 @@
 @import "normalize.css/normalize";
 @import "bourbon/app/assets/stylesheets/bourbon";
+@import "animate.css/animate";
 @import "mixins";
 @import "variables";
 @import url('https://fonts.googleapis.com/css?family=Roboto&subset=latin-ext');
@@ -21,6 +22,7 @@ body {
 }
 
 #main {
+  @include animation-duration(600ms);
   height: 100%;
   display: flex;
   justify-content: center;
@@ -91,10 +93,11 @@ body {
 
               span {
                 &.number {
-                  @include position(absolute, 0 rem(15) 0 null);
+                  //@include position(absolute, 0 rem(15) 0 null);
+                  margin-right: rem(15);
+                  margin-left: auto;
                   color: $textSecondary;
                   height: 1em;
-                  margin: auto;
                 }
               }
             }
@@ -142,6 +145,7 @@ body {
               background-color: transparent;
               margin-left: auto;
               margin-right: 0;
+              padding: 0;
 
               svg {
                 fill: none;

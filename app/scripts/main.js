@@ -7,10 +7,9 @@ import jQuery from 'jquery';
 const $ = jQuery;
 window.jQuery = window.$ = $;
 
-//let bootstrap = require('bootstrap');
-
 class Main {
-  constructor() {
+  constructor(mainEl) {
+    this.mainEl = mainEl;
     this.content = [
       {
         date: '19-07-2016',
@@ -73,7 +72,6 @@ class Main {
 
   insertContent() {
     for (let section of this.content) {
-      console.log(section);
       let sectionDiv = $(`
         <section>
           <header>
@@ -82,7 +80,7 @@ class Main {
         </section>
       `);
 
-      for(let issue of section.issues) {
+      for (let issue of section.issues) {
         sectionDiv.append(
           `<article>
           ${issue.name}
@@ -93,12 +91,24 @@ class Main {
           </button>
         </article>`
         )
-      };
+      }
 
       $('#issues').append(sectionDiv);
     }
   }
+
+  show() {
+    this.mainEl.show();
+    this.mainEl.addClass('animated zoomIn');
+  }
 }
 
-let main = new Main();
-main.insertContent();
+
+$(document).ready(() => {
+  const main = new Main($('#main'));
+  main.insertContent();
+
+  setTimeout(() => {
+    main.show();
+  }, 1000);
+});
