@@ -2,3 +2,15 @@
   -webkit-background-size: $size;
   background-size: $size;
 }
+
+@mixin boxShadow($hoff, $voff, $blur, $color) {
+  @if($hoff == 'none') {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  } @else {
+    -webkit-box-shadow: $hoff $voff $blur $color;
+    -moz-box-shadow: $hoff $voff $blur $color;
+    box-shadow: $hoff $voff $blur $color;
+  }
+}

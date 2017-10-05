@@ -22,13 +22,13 @@ body {
 }
 
 .rounded-box {
-  @include border-top-radius(10px);
-  @include border-bottom-radius(10px);
+  @include border-top-radius(rem(10));
+  @include border-bottom-radius(rem(10));
 }
 
 #mainContainer {
-  width: 650px;
-  height: 500px;
+  width: rem(650);
+  height: rem(500);
   overflow: hidden;
 
   nav, main {
@@ -36,10 +36,22 @@ body {
   }
 
   nav {
-    width: 150px;
+    width: rem(150);
     height: 100%;
     background-color: $navBg;
     float: left;
+
+    #commonNav {
+      height: rem(40);
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      padding-left: rem(5);
+
+      .btn {
+        margin-left: rem(10);
+      }
+    }
   }
 
   main {
@@ -49,8 +61,18 @@ body {
 }
 
 .btn {
-  .commonNav {
+  &.commonNav {
+    @include border-style(none);
     @include border-top-radius(50%);
     @include border-bottom-radius(50%);
+    display: inline-block;
+    width: $commonBtnSize;
+    height: $commonBtnSize;
+    margin: 0;
+    padding: 0;
+
+    &.close {
+      background-color: $commonClose;
+    }
   }
 }
