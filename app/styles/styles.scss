@@ -180,7 +180,15 @@ body {
 
               }
 
-              &:hover, &.active {
+              &:hover {
+                svg {
+                  .cls-1 {
+                    fill: $borderPrimary;
+                  }
+                }
+              }
+
+              &.active {
                 svg {
                   .cls-1 {
                     fill: $starActive;
@@ -197,6 +205,8 @@ body {
 }
 
 .btn {
+  cursor: pointer;
+
   &:focus {
     @include boxShadow(none);
   }
@@ -235,7 +245,6 @@ nav {
       padding: 0;
       margin: 0;
       display: block;
-
     }
   }
 }

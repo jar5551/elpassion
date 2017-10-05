@@ -111,4 +111,19 @@ $(document).ready(() => {
   setTimeout(() => {
     main.show();
   }, 1000);
+
+  $('#mainNav .btn').on('click', function () {
+    $('#mainNav .btn').removeClass('active');
+    $(this).addClass('active');
+  });
+
+  $('.btn-star').on('click', function () {
+    let el = $(this);
+
+    if(el.hasClass('active')) {
+      return el.removeClass('active');
+    }
+
+    el.addClass('active');
+  })
 });
