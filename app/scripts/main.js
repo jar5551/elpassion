@@ -99,7 +99,7 @@ class Main {
 
   show() {
     this.mainEl.show();
-    this.mainEl.addClass('animated zoomIn');
+    this.mainEl.addClass('animated fadeIn');
   }
 }
 

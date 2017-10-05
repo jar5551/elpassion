@@ -22,7 +22,7 @@ body {
 }
 
 #main {
-  @include animation-duration(600ms);
+  @include animation-duration(300ms);
   height: 100%;
   display: flex;
   justify-content: center;
